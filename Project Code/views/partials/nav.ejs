@@ -1,0 +1,69 @@
+<nav class="navbar navbar-light fixed-top navbar-expand-lg navbar-expand-md" style="background-color:lightgrey">
+
+    <% if(islogged == true){ %>
+    <a class="navbar-brand mr-auto" href="/ProjectNull"><img
+            src="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440"
+            height="50px"> Welcome back <%=logged %></a>
+    <% }else{ %>
+        <a class="navbar-brand mr-auto" href="/ProjectNull"><img
+            src="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440"
+            height="50px"> Pokemon Team Builder</a>
+       <% } %>
+
+
+
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/ProjectNull">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                    Pokemon Basics
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/HowtoPlay">What is pokemon</a>
+                    <a class="dropdown-item" href="/whatAreShinys">Shinies</a>
+                    <a class="dropdown-item" href="/typechart">Types</a>
+                    <a class="dropdown-item" href="/compstrat">Competition</a>
+                    <a class="dropdown-item" href="/abilities">Abilities</a>
+                    <a class="dropdown-item" href="/items">items</a>
+                    <a class="dropdown-item" href="https://play.pokemonshowdown.com/">   Pokemon Showdown (site inspiration)  </a>
+                </div>
+            </li>
+
+            <% if(islogged == true){ %>
+            <li class="nav-item">
+                <a class="nav-link" href="/TeamBuilder">Build a Team</a>
+            </li>
+            <% } %>
+            <%  if(islogged == true){ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user-page">  profile</a>
+                </li>
+
+            <% }else{ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Log in</a>
+                </li>
+            <% } %>
+            <%  if(islogged == true){ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/signout">Sign Out</a>
+                </li>
+
+                <% }else{ %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registration">Sign up</a>
+                    </li>
+                <% } %>
+                    
+        </ul>
+    </div>
+</nav>

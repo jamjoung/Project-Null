@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>UserPage</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="shortcut icon"
+        href="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440" />
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <%- include ('partials/nav.ejs')  %>
+
+
+    <div style="height: 90px;"></div>
+    <div style="width: 80%; margin-left: 10%; margin-right: 10%;">
+        <div class="row ">
+            <div class="col-md-3">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <img class="rounded-circle"
+                                    src="data:image/png;base64,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"
+                                    height="80px">
+                            </div>
+                            <div class="col">
+                                <p><%= logged %><br>
+                                    # of Teams: <%= teamC %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="height: 625px; padding: 2%;">
+                    <div class="d-flex" style="justify-content: center;">
+                        <h5>Team #<%= teamnum %></h5>
+                    </div>
+                    <div class="card-body">
+                        <% var select;  if(data!= '' && teamC != 0){if(selected == ''){ select = data[0].team_id;}else{ select = selected} var f =1;  data.forEach(function(item){ var img; %>
+                        <% if(select == item.team_id){ %>
+                        <%if(item.pokeid > 99) {img = 'http://www.serebii.net/xy/pokemon/'+item.pokeid+'.png'; } %>
+                        <%if (item.pokeid > 9  &&  item.pokeid < 100){  img = 'http://www.serebii.net/xy/pokemon/0'+item.pokeid+'.png'; }%>
+                        <% if(item.pokeid < 10 ) { img = 'http://www.serebii.net/xy/pokemon/00'+item.pokeid+'.png';} %>
+                        <div class="row">
+                            <div class="col-md-4 d-flex" style="align-items: center;">
+                                <img class="rounded-circle " alt="Pokemon 1" height="60px" src=<%= img %>>
+                            </div>
+
+                            <div class="col" style="width: fit-content; padding-left: 5%;">
+                                <div class="row">
+                                    <div class="col">
+                                        <h6><%= item.pokename %></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div style="width: fit-content; padding-left: 5%;">
+                                        <p style="margin-bottom: 1%;">HP</p>
+                                        <p><%= item.hp_ev %></p>
+                                    </div>
+                                    <div style="width: fit-content; padding-left: 5%;">
+                                        <p style="margin-bottom: 1%;">Atk</p>
+                                        <p><%= item.attack_ev %></p>
+                                    </div>
+                                    <div style="width: fit-content; padding-left: 5%;">
+                                        <p style="margin-bottom: 1%;">Def</p>
+                                        <p><%= item.defense_ev %></p>
+                                    </div>
+                                    <div style="width: fit-content; padding-left: 5%;">
+                                        <p style="margin-bottom: 1%;">SpA</p>
+                                        <p><%= item.spattack_ev %></p>
+                                    </div>
+                                    <div style="width: fit-content; padding-left: 5%;">
+                                        <p style="margin-bottom: 1%;">SpD</p>
+                                        <p><%= item.spdefense_ev %></p>
+                                    </div>
+                                    <div style="width: fit-content; padding-left: 5%;">
+                                        <p style="margin-bottom: 1%;">Spe</p>
+                                        <p><%= item.speed_ev %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } }); %>
+
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 ">
+                <div class=" text-center card-header text-white bg-danger">Add, or Delete a Team</div>
+                <div class="card text-white bg-danger align-self-stretch" style="height: 82px">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4" >
+                                <img class="rounded-circle"
+                                    src="https://cpng.pikpng.com/pngl/s/58-589803_pokeball-png-transparent-image-pokeball-png-clipart.png"
+                                    height="40px">
+                                    <a class="text-white" href="/TeamBuilder"><button class="btn btn-dark" >Add </button> </a>  
+              
+                            </div>
+
+                            <div class="col-lg-4">
+                               <%var select; if(teamC > 0 && data!= ''){if(selected == ''){ select = data[0].team_id;}else{ select = selected}}   %>
+                                <form id="loginForm" action="/user-page/delete" method="post">
+
+                                    <img src="https://www.serebii.net/Shiny/SWSH/094.png" height="40px" width="50px">
+                                    <button type ="submit" name ="select" class="btn btn-dark" value =<%= select %>>Delete</button>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card d-flex" style="height: 625px; padding: 2%; ">
+                    
+                        <% if(data!= '' && teamC != 0){ var select = data[0].team_id; var cc =1; var newj = true; for(var i = 0;i < data.length; i++){  %>
+                            <div class="card-body" style="padding:.1%">
+                        <% if(newj == true ){ %>
+                        <%  var bob = i; var cycle = i; newj = false; var iddd = data[i].team_id; %>
+                        <div class="row" style="margin-bottom:1.25%">
+                            <div class="card col-md-12 d-flex" style="height: 100px;" id=<%= cc %>>
+                                <div class="row">
+                                    <div class="col-md-3 d-flex" style="align-items: center;  justify-content: center;">
+                                        <h5><i> Team# <%= cc %> </i></h5>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row ">
+                                            <%    do{ bob++; cycle++; var img;%>
+                                            <%if(data[bob-1].pokeid > 99) {img = 'http://www.serebii.net/xy/pokemon/'+data[bob-1].pokeid+'.png'; } %>
+                                            <%if (data[bob-1].pokeid > 9  &&  data[bob-1].pokeid < 100){  img = 'http://www.serebii.net/xy/pokemon/0'+data[bob-1].pokeid+'.png'; }%>
+                                            <% if(data[bob-1].pokeid < 10 ) { img = 'http://www.serebii.net/xy/pokemon/00'+data[bob-1].pokeid+'.png';} %>
+
+
+
+                                            <div class="col-md-2 team-1" style="margin: 1%;margin-bottom: 0%;">
+                                                <img class="rounded-circle " alt="Pokemon 2" height="40" src=<%= img %>>
+                                            </div>
+
+
+
+
+
+                                            <%    }while(bob < i+3 && bob < data.length  && data[cycle-1].team_id == data[cycle].team_id ) %>
+                                        </div>
+                                        <div class="row ">
+                                            <%    do{   %>
+                                                        <%if(bob > i+3 && data[cycle-2].team_id == data[cycle-1].team_id){ %>
+                                                            <%if(data[bob-1].pokeid > 99) {img = 'http://www.serebii.net/xy/pokemon/'+data[bob-1].pokeid+'.png'; } %>
+                                                            <%if (data[bob-1].pokeid > 9  &&  data[bob-1].pokeid < 100){  img = 'http://www.serebii.net/xy/pokemon/0'+data[bob-1].pokeid+'.png'; }%>
+                                                            <% if(data[bob-1].pokeid < 10 ) { img = 'http://www.serebii.net/xy/pokemon/00'+data[bob-1].pokeid+'.png';} %>
+                
+                
+                                                            <div class="col-md-2 team-1" style="margin: 1%;margin-bottom: 0%;">
+                                                                <img class="rounded-circle " alt="Pokemon 2" height="40" src=<%= img %>>
+                                                            </div>
+                                                    <%} %>
+                                                    <%if(bob == data.length -1){ %>
+                                                        <%if(data[bob].pokeid > 99) {img = 'http://www.serebii.net/xy/pokemon/'+data[bob].pokeid+'.png'; } %>
+                                                        <%if (data[bob].pokeid > 9  &&  data[bob].pokeid < 100){  img = 'http://www.serebii.net/xy/pokemon/0'+data[bob].pokeid+'.png'; }%>
+                                                        <% if(data[bob].pokeid < 10 ) { img = 'http://www.serebii.net/xy/pokemon/00'+data[bob].pokeid+'.png';} %>
+            
+            
+                                                        <div class="col-md-2 team-1" style="margin: 1%;margin-bottom: 0%;">
+                                                            <img class="rounded-circle " alt="Pokemon 2" height="40" src=<%= img %>>
+                                                        </div>
+                                                        <%} %>
+
+                                            <% cycle++; bob++;  }while( bob > i+2 && bob < data.length    && data[cycle-2].team_id == data[cycle-1].team_id ) %>
+                                        </div>
+                                    </div>
+                                    <form action="/user-page/select" method="POST">
+                                        <div class="col-md-3 d-flex" style="justify-content: end; align-items: center;">
+                                            <button type="submit" class="btn btn-success"  name="select"
+                                            value=<%= iddd %>>select</button>
+                                        </div>
+                                        <div class="col" style="width: 0px; height: 0px; visibility:hidden;">
+                                            <input type="text" name='cc' value=<%=cc %>>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <%  cc++;}  %>
+                            <% if(i != data.length -1 && data[i].team_id != data[i+1].team_id ) { newj = true } %>
+
+
+
+
+
+                        </div>
+
+                            <%      }; %>
+
+
+                            <% }else{ %>
+                                <h1>You havent made any Teams yet</h1>
+                           <% } %>
+                        
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

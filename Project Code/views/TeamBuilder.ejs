@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Team Builder</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <!--js/bootstrap.min.js -->
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="shortcut icon"
+        href="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440" />
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    <script type="text/javascript">
+
+
+
+
+
+     function EV() {
+            var sum = 0;
+            var list = document.getElementsByClassName("EV");
+            var sliders = document.getElementsByClassName("slider");
+            for (var i = 0; i < list.length; i++) {
+                sum = sum + Number(list[i].value);
+            }
+            if (sum <= 508) {
+                usedEV = sum;
+                maxEV = 508 - usedEV;
+                if (maxEV >= 252) maxvalue = 252;
+                else maxvalue = maxEV;
+            }
+            if (maxvalue < 252) {
+                for (var i = 0; i < sliders.length; i++) {
+                    if ((sliders[i].max > maxvalue && sliders[i].value != sliders[i].max) || sliders[i].max < maxvalue) {
+                        if ((Number(sliders[i].value) + maxvalue) >= 252) sliders[i].max = 252;
+                        else sliders[i].max = maxvalue + Number(sliders[i].value);
+                        console.log(sliders[i].max, maxvalue);
+                    }
+                }
+            }
+            document.getElementById("EV_counter").innerHTML = "EVs Remaning: " + maxEV;
+        }
+        function EV_value(event, cl, id, input) {
+
+            list = document.getElementsByClassName(cl);
+            if (maxEV != 0 || event.inputType == "deleteContentBackward") {
+                input = input || 0;
+                if (input >= maxvalue) {
+                    if (input + maxvalue >= 252) {
+                        input = 252;
+                    }
+                    else if (input + maxvalue >= maxEV) {
+                        input = Number(input[input.length - 1]) + maxEV;
+                    }
+                }
+                for (var i = 0; i < list.length; i++) {
+                    list[i].value = input;
+
+                }
+
+            }
+            if (event.inputType != "deleteContentBackward") {
+                //console.log(list[1].value, list[0].value, maxEV, maxvalue);
+                if (maxEV == 0 || id == "evslider-" + cl) {
+                    list[0].value = list[1].value;
+                }
+
+            }
+
+        }
+
+
+    </script>
+
+</head>
+
+<body onload="EV() ">
+
+    <%- include ('partials/nav.ejs')  %>
+    <% var yolo = ['1', '1', '1', '1', '1', '1'];  %>
+    <% if(teamC == ''){var pC = 0;} else{var pC = teamC}  %>
+    <% var holly = JSON.parse(savedmon) %>
+    <% var useridC = userid %>
+    <% for(var i = 0; i< pC; i++){ } %>
+    <%  if (holly[0] != '1' ){ for(var i =0; i < pC; i++){yolo = holly;} console.log(holly,"it worked heres holly");    } %>
+
+
+        
+            <div class="d-flex flex-row" style=" margin-top: 80px; padding: 4%; width: 90%;">
+                
+                <div class="col-md-8 col" style="width: 90%;" >
+                    <h2 style = " font-family: 'Arial Black', sans-serif;">Search Customize then Add to your team</h2> <br>
+
+                    <div class="row" style="max-height: fit-content;">
+                        <% if(yolo[0] != 1){for(var i =0; i < pC; i++){ if(yolo[i] != 1){var img = yolo[i].url; console.log(useridC ," yellow there"); console.log(img,"888888888888888888"); %>
+                        <div class="col-md-2">
+                            <img height="65" alt="" src=<%= img %>>
+                        </div>
+                        <% }} %>
+                        <div class="col-md-2" style="max-height: fit-content; max-width: fit-content;">
+                            <form action="/TeamBuilder/save" method="post">
+                                <button type="submit" class="btn btn-success" style="width: fit-content;" name="choice"
+                                    value="submit">save team</button>
+                                <div class="col" style="width: 0px; visibility:hidden;">
+                                    <input type="text" name='saved' value=<%= JSON.stringify(yolo)%>>
+                                </div>
+                                <div class="col" style="width: 0px; visibility:hidden;">
+                                    <input type="text" name='partycount' value=<%= pC%>>
+                                </div>
+                                <div class="col" style="width: 0px; visibility:hidden;">
+                                    <input type="text" name='useridC' value=<%=useridC %>>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <% }else{ %>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="/pokemon_images/emptyicon.png" height="65" alt="yabo2w">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/pokemon_images/emptyicon.png" alt="Pokemon 2" height="65">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/pokemon_images/emptyicon.png" alt="Pokemon 3" height="65">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/pokemon_images/emptyicon.png" alt="Pokemon 4" height="65">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/pokemon_images/emptyicon.png" alt="Pokemon 5" height="65">
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/pokemon_images/emptyicon.png" alt="Pokemon 6" height="65">
+                        </div>
+                    </div>
+                    <% } %>
+                    <div class="card">
+                        <form class="form-inline" action="/TeamBuilder" method="POST">
+                            <div class="form-group">
+                                <label>Name(lowercase): </label>
+                                <input type="text" name='pkmName' id="pkmName" class="form-control"
+                                    placeholder="i.e Charizard">
+                            </div>
+                            <div class="form-check">
+                                <label>Type: </label>
+                            </div>
+                            <select name="type" id="type" class="custom-select custom-select-sm">
+                                <option value="Any" selected>Any</option>
+                                <option value="Normal">Normal</option>
+                                <option value="Fire">Fire</option>
+                                <option value="Water">Water</option>
+                                <option value="Electric">Electric</option>
+                                <option value="Grass">Grass</option>
+                                <option value="Ice">Ice</option>
+                                <option value="Fighting">Fighting</option>
+                                <option value="Poison">Poison</option>
+                                <option value="Ground">Ground</option>
+                                <option value="Flying">Flying</option>
+                                <option value="Psychic">Psychic</option>
+                                <option value="Bug">Bug</option>
+                                <option value="Rock">Rock</option>
+                                <option value="Ghost">Ghost</option>
+                                <option value="Dragon">Dragon</option>
+                                <option value="Dark">Dark</option>
+                                <option value="Steel">Steel</option>
+                                <option value="Fairy">Fairy</option>
+                            </select>
+                            <div class="form-check">
+                                <label>Gen: </label>
+                            </div>
+                            <select name="Generations" id="Gen" class="custom-select custom-select-sm">
+                                <option value="0" selected>Any</option>
+                                <option value="1">Gen 1</option>
+                                <option value="2">Gen 2</option>
+                                <option value="3">Gen 3</option>
+                                <option value="4">Gen 4</option>
+                                <option value="5">Gen 5</option>
+                                <option value="6">Gen 6</option>
+                            </select>
+                            <div class="col" style="width: 0px; visibility:hidden;">
+                                <input type="text" name='useridC' value=<%=useridC %>>
+                            </div>
+                            <div class="col" style="width: 0px; visibility:hidden;">
+                                <input type="text" name='saved' value=<%= JSON.stringify(yolo)%>>
+                            </div>
+                            <div class="col" style="width: 0px; visibility:hidden;">
+                                <input type="text" name='partycount' value=<%= pC%>>
+                            </div>
+                            <button type="submit" class="button" id="button" >Search</button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+
+                        <h8>Pokemon Search Results</h8>
+
+                        <% if(data!= ''){ var f =1; var previousMon = ''; data.forEach(function(item){ %>
+
+                        <%  if(item.pokemon_id == previousMon){previousMon = item.pokemon_id; %>
+                        <% }else{ %>
+                        <% var img ='' ;%>
+                        <%if(item.pokemon_id > 99) {img = 'http://www.serebii.net/xy/pokemon/'+item.pokemon_id+'.png'; } %>
+                        <%if (item.pokemon_id > 9  &&  item.pokemon_id < 100){  img = 'http://www.serebii.net/xy/pokemon/0'+item.pokemon_id+'.png'; }%>
+                        <% if(item.pokemon_id < 10 ) { img = 'http://www.serebii.net/xy/pokemon/00'+item.pokemon_id+'.png';} %>
+                        <% f++; previousMon = item.pokemon_id; %>
+                        <div class="card " style="height: 80px; ">
+                            <div class="card-body row">
+                                <div >
+                                    <img style="height: 40px;" src=<%= img %>>
+                                </div>
+                                <div style=" padding-left: 2%;" >
+                                    <p><%= item.pkmn_name %></p>
+                                </div>
+                                <div style=" padding-left: 2%;">
+                                    <p><%= item.type_1 %></p>
+                                </div>
+                                <div style=" padding-left: 2%;">
+                                    <p><%= item.type_2 %></p>
+                                </div>
+                                <div class="col">
+                                    <div class="row" >
+                                        <div style=" padding-left: 2%;">
+                                            <p style="margin-bottom: 1%;">HP</p>
+                                            <p><%= item.hp %></p>
+                                        </div>
+                                        <div style=" padding-left: 5%;">
+                                            <p style="margin-bottom: 1%;">Atk</p>
+                                            <p><%= item.attack %></p>
+                                        </div>
+                                        <div style=" padding-left: 5%;">
+                                            <p style="margin-bottom: 1%;">Def</p>
+                                            <p><%= item.defense %></p>
+                                        </div>
+                                        <div style=" padding-left: 5%;">
+                                            <p style="margin-bottom: 1%;">SpA</p>
+                                            <p><%= item.sp_attack %></p>
+                                        </div>
+                                        <div style=" padding-left: 5%;">
+                                            <p style="margin-bottom: 1%;">SpD</p>
+                                            <p><%= item.sp_defense %></p>
+                                        </div>
+                                        <div style="padding-left: 5%;">
+                                            <p style="margin-bottom: 1%;">Speed</p>
+                                            <p><%= item.speed %></p>
+                                        </div>
+                                        <div>
+                                            <form id="loginForm" action="/TeamBuilder/selectmon" method="post">
+
+                                                <button type="submit" class="btn btn-success"  name="choice"
+                                                    value=<%= item.pokemon_id%>>add</button>
+
+                                                <div class="col" style="width: 0px; height: 0px; visibility:hidden;">
+                                                    <input type="text" name='partycount' value=<%= pC%>>
+                                                </div>
+                                                <div class="col" style="width:0px; height: 0px; visibility:hidden;">
+                                                    <input type="text" name="saved" value=<%=JSON.stringify(yolo)%>>
+                                                </div>
+                                                <div class="col" style="width: 0px; height: 0px; visibility:hidden;">
+                                                    <input type="text" name='useridC' value=<%=useridC %>>
+                                                </div>
+                                            </form>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+
+
+                    <% }); %>
+                        <% } %>
+                    </div>
+
+                </div>
+               
+                    <% if(choice != ''){ choice.forEach(function(item){ %>
+                        <div class="col-md-6" style = "width: 100%;">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <img class="card-img-top" src="<%= imgg %>" alt="Image of Selected Pokemon">
+                                </div>
+                                <div class="col">
+                                    <p id="selected-name" style="font-size: large;"><%= item.pkmn_name %></p>
+                                    <p style="font-size: larger;" id="selected-type-1">
+                                        <u><%= item.type_1 %>/<%= item.type_2 %></u></p>
+                                    <p id="selected-pokemon-name" style="font-size: large; visibility: hidden;"
+                                        id="selected-type-2"></p>
+
+                                </div>
+                            </div>
+                            <p class="card-text">HP: <%= item.hp %> Atk: <%= item.attack %> Def: <%= item.defense %>
+                                SP.ATK:<%= item.sp_attack %> <br>
+                                SP.DEF: <%= item.sp_defense %> SPD: <%= item.speed %></p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card" >
+                        <form action="/TeamBuilder/confirm" method="post">
+                            <div class="card-body" onchange="EV();">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <u>Stats</u>
+                                    </div>
+                                    <div class="col-md-3 d-flex">
+                                        <u>EVs</u>
+                                    </div>
+                                    <div class="col d-flex" >
+                                        <u>0 to 252 </u>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 2%; height: 5%;">
+                                    <div class="col-md-3">
+                                        <label for="stat-hp" style="padding-right: 2%;">HP: </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control hp EV" id="stat-hp" maxlength="3" type="number"
+                                            oninput="EV_value(event,'hp', this.id, this.value)"
+                                            style="width:110%; margin-right: 2%;">
+                                    </div>
+                                    <div class="col" style="margin:0;">
+                                        <input type="range" name='hp' class="costume-range hp slider" id="evslider-hp"
+                                            value="0" min="0" max="252" step="1" tabindex="-1" aria-hidden="true"
+                                            oninput="EV_value(event,'hp', this.id, this.value)">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 2%;">
+                                    <div class="col-md-3">
+                                        <label for="stat-atk" style="padding-right: 2%;">Atk: </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control atk EV" id="stat-atk" maxlength="3" type="number"
+                                            oninput="EV_value(event,'atk', this.id, this.value)"
+                                            style="width:110%; margin-right: 2%;">
+                                    </div>
+                                    <div class="col" style="margin:0;">
+                                        <input type="range" name='atk' class="costume-range atk slider"
+                                            id="evslider-atk" value="0" min="0" max="252" step="1" tabindex="-1"
+                                            aria-hidden="true" oninput="EV_value(event,'atk', this.id, this.value)">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 2%;">
+                                    <div class="col-md-3">
+                                        <label for="stat-def" style="padding-right: 2%;">Def: </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control def EV" id="stat-def" maxlength="3" type="number"
+                                            oninput="EV_value(event,'def', this.id, this.value)" style="width:110%;">
+                                    </div>
+                                    <div class="col" style="margin:0;">
+                                        <input type="range" name='def' class="costume-range def slider"
+                                            id="evslider-def" value="0" min="0" max="252" step="1" tabindex="-1"
+                                            aria-hidden="true" oninput="EV_value(event,'def', this.id, this.value)">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 2%;">
+                                    <div class="col-md-3">
+                                        <label for="stat-spatk" style="padding-right: 2%;">Sp.Atk: </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control spatk EV" id="stat-spatk" maxlength="3" type="number"
+                                            oninput="EV_value(event,'spatk', this.id, this.value)" style="width:110%;">
+                                    </div>
+                                    <div class="col" style="margin:0;">
+                                        <input type="range" name='spA' class="costume-range spatk slider"
+                                            id="evslider-spatk" value="0" min="0" max="252" step="1" tabindex="-1"
+                                            aria-hidden="true" oninput="EV_value(event,'spatk', this.id, this.value)">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 2%;">
+                                    <div class="col-md-3">
+                                        <label for="stat-spdef" style="padding-right: 2%;">Sp.Def: </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control spdef EV" id="stat-spdef" maxlength="3" type="number"
+                                            oninput="EV_value(event,'spdef', this.id, this.value)"
+                                            style="width:110%; margin-right: 2%;">
+                                    </div>
+                                    <div class="col" style="margin:0;">
+                                        <input type="range" name='spD' class="costume-range spdef slider"
+                                            id="evslider-spdef" value="0" min="0" max="252" step="1" tabindex="-1"
+                                            aria-hidden="true" oninput="EV_value(event,'spdef', this.id, this.value)">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 2%;">
+                                    <div class="col-md-3">
+                                        <label for="stat-spd" style="padding-right: 2%;">Spd: </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control spd EV" id="stat-spd" maxlength="3" type="number"
+                                            oninput="EV_value(event,'spd', this.id, this.value)"
+                                            style="width:110%; margin-right: 2%;">
+                                    </div>
+                                    <div class="col" style="margin:0;">
+                                        <input type="range" name='speed' class="costume-range spd slider"
+                                            id="evslider-spd" value="0" min="0" max="252" step="1" tabindex="-1"
+                                            aria-hidden="true" oninput="EV_value(event,'spd', this.id, this.value)">
+                                    </div>
+                                </div>
+                                <p id="EV_counter">EVs Remaining: </p>
+                                <div class="row" style="padding: 2%; height: 5%;">
+                                   
+                                        
+                                    
+
+                                    <div class="col-md-3">
+                                      <div class = "row"><p>Name:(NO SPACES)</p> </div>  
+                                        <label for="name-choice" style="padding-right: 2%;"> </label>
+                                    </div>
+
+                                    <div class="col" style="margin:0;">
+                                        <input type="text" name='name' id="evslider-hp" value=<%= item.pkmn_name %>>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 2%; height: 5%;">
+                                    <div class="col-md-3">
+                                        <label for="stat-hp" style="padding-right: 2%;">Shiny: </label>
+                                    </div>
+
+                                    <div class="col" style="margin:0;">
+                                        <input type="radio" id="male" name="noshin" value="1" required>
+                                        <label for="male">Yes</label><br>
+                                        <input type="radio" id="female" name="noshin" value="0" required>
+                                        <label for="female">No</label><br>
+
+                                    </div>
+                                </div>
+                                <div class="row" style="padding: 2%; height: 5%; ">
+                                    <div class="col-md-3">
+                                        <label for="stat-hp" style="width: 0px; visibility:hidden;">ID: </label>
+                                    </div>
+
+                                    <div class="col" style="margin:0;">
+                                        <input type="text" name='id' value=<%= item.pokemon_id%>>
+                                    </div>
+                                    <div class="col" style="width: 0px; visibility:hidden;">
+                                        <input type="text" name='saved' value=<%= JSON.stringify(yolo)%>>
+                                    </div>
+                                    <div class="col" style="width: 0px; visibility:hidden;">
+                                        <input type="text" name='partycount' value=<%= pC%>>
+                                    </div>
+                                    <div class="col" style="width: 0px; visibility:hidden;">
+                                        <input type="text" name='useridC' value=<%=useridC %>>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                </div>
+                    <% }); %>
+                
+                    <% } %>
+                
+
+            </div>
+        
+
+</body>
+
+</html>

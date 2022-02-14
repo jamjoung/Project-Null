@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>What are Shinys</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon"
+        href="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440" />
+
+
+
+        <script>
+                function pictureChange()
+                {
+                document.getElementById('test').src="pokemon_images/shiny_charizard.png";
+                }
+                function pictureChange2()
+                {
+                document.getElementById('test').src="pokemon_images/charizard.png";
+                }
+                </script>
+</head>
+
+
+<body>
+
+  <%- include ('partials/nav.ejs') %>
+    <br>
+    <br>
+    <div class="container">
+        <br>
+    <div class="jumbotron">
+        <h1 class="display-4">What are Shiny Pokemon?</h1>
+        <hr class="my-4">
+        <p>A Shiny Pokémon (Japanese: 光るポケモン Shiny Pokémon), previously officially known as alternate coloration or rare coloration (Japanese: 色違い differently colored), and called Color Pokémon in Pokémon Stadium 2, is a specific Pokémon with different coloration to what is usual for its species. It is one of the many differences that a Pokémon can have within its species.</p>
+        <p>Shiny Pokémon can differ in color from their normal counterparts very little or very much. Some Pokémon, such as Glaceon or Pichu, have a Shiny coloration only a few shades darker or lighter in color. Conversely, some Pokémon, such as Caterpie, have dramatic differences in color.
+
+                An evolutionary line is not necessarily guaranteed to have similar Shiny colorations even if their standard colorations are the same; both Ponyta and Rapidash have orange flames, but a Shiny Ponyta has blue flames while a Shiny Rapidash has gray flames (this is switched in Generation II). Sometimes, two Pokémon in an evolutionary line with different standard colorations will have the same Shiny coloration, as in the case of Skitty and Delcatty.
+
+                Little is known about how Shiny colorations are chosen. While it often rumored that early Shiny colorations where determined algorithmically, all Pokémon Shiny colorations are individually defined in the game data[1] and Pokémon with similar palettes have distinct Shiny colorations even in Generation II.[2] James Turner, who has worked as a Pokémon designer since Generation V, stated that the first time he selected Shiny colorations was in Generation VII, when he selected the Shiny colorations of Ultra Beasts he designed.[3]</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="https://bulbapedia.bulbagarden.net/wiki/Shiny_Pok%C3%A9mon" role="button">Learn more</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+        <h5>Check out charizard's shiny and normal variant</h5>
+            <button onclick="pictureChange2()">Normal variant</button>
+
+            <img id="test" src="pokemon_images/charizard.png" alt ="shiny charizard" style="width:400px;height:400px;">
+
+
+            <button onclick="pictureChange()">Shiny variant</button>
+
+
+    </div>
+
+</body>
+</html>

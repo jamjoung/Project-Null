@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project Null</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="shortcut icon"
+        href="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440" />
+
+</head>
+
+<body>
+
+
+
+
+    <div style="height: 90px;"></div>
+    <div class="container">
+        <%- include ('partials/nav.ejs') %>
+
+<% if(islogged ==true) {  %>
+
+<p> welcome back  <%= logged  %></p> 
+
+<%} else{ %>
+<p>sign in </p>
+<%}%>
+        <div class="row">
+            <div class="card col-md-8">
+                <div class="row no-gutters">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><u>Homepage and Site Updates</u></h5>
+                            <p class="card-text">
+                                ProjectNull version 1.0
+                                Loggin in, TeamBuilding, TeamSaving and Pokemon searching are all a-go!
+                                -Thank you for your pacience :)
+                            </p>
+                            <p class="card-text"><small class="text-muted">Last updated 12/2/2020</small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://i.pinimg.com/736x/be/32/b5/be32b57448fccbf2216422e6e5020f7b--charizard-tattoo-pokemon-charizard-cake.jpg"
+                            class="card-img">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-danger mb-3 row-md-7">
+                    <div class="card-header">Guides</div>
+                    <div class="card-body">
+                        <ul class="list-unstyled card-text text-center">
+                            <li><a class="text-white" href="/HowtoPlay">How to play? </a></li>
+                            <li><a class="text-white" href="/whatAreShinys">What are Shinies? </a></li>
+                            <li><a class="text-white" href="/typechart">How do pokemon types interact? </a></li>
+                            <li><a class="text-white" href="/compstrat">Competitive Strategy </a></li>
+                            <li><a class="text-white" href="/abilities">Abilities </a></li>
+                            <li><a class="text-white" href="/items">Items </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+            <% if(islogged == true){ %>
+                <div class="col-md-4">
+                    <div class="jumbotron" style ="color:rgb(224, 193, 16);">
+                        <h1 class="display-4">  <a style ="color:rgb(224, 193, 16);font-size: 60px;" href="/TeamBuilder"><button>Build Team</button></a></h1>
+                       
+                    </div>
+            </div>
+         <%   }else{ %>
+            <div class="col-md-6">
+                <div class="jumbotron" style ="color:rgb(224, 193, 16);">
+                    <h1 class="display-4">  <a style ="color:rgb(224, 193, 16);font-size: 60px;" href="/login">Sign in to build and save teams</a></h1>
+                   
+                </div>
+        </div>
+        <% } %>
+
+    </div>
+</body>
+
+</html>

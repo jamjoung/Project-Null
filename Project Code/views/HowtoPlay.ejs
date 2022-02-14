@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>What is pokemon?</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon"
+        href="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440" />
+
+
+
+</head>
+<body>
+      <%- include ('partials/nav.ejs') %>
+        <br>
+        <br>
+        <div class="container">
+            <br>
+        <div class="jumbotron">
+            <h1 class="display-4">What is Pokemon?</h1>
+            <hr class="my-4">
+            <p>Pokémon are creatures of all shapes and sizes who live in the wild or alongside humans. For the most part, Pokémon do not speak except to utter their names. Pokémon are raised and commanded by their owners (called “Trainers”). During their adventures, Pokémon grow and become more experienced and even, on occasion, evolve into stronger Pokémon. There are currently more than 700 creatures that inhabit the Pokémon universe.
+            </p>
+            <p>The first Pokémon video games were released for the Nintendo Game Boy in 1998, and the series has driven the popularity of Pokémon ever since. Pokémon games have thus far appeared exclusively on Nintendo systems, including the Nintendo 3DS and Wii U console.
+
+                In most games, the player takes on the role of a young Trainer whose journey involves traveling from place to place, catching and training Pokémon, and battling against other Trainers’ Pokémon on a quest to become the Pokémon League Champion. An additional goal is to catch and catalog all of the many Pokémon within the game’s world. Despite this battling aspect of the games, the Pokémon games avoid explicit violence; Pokémon never die during the course of the game. Trainers are invited to take part in many peripheral activities when playing, including talent and beauty contests, tournaments, and fishing (for Pokémon, of course!).
+
+                Players can battle and trade Pokémon with other players as well, letting children learn the merits of sharing and sportsmanship. With newer video game systems, players can even play and trade online with other Trainers around the world.</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="https://en.wikipedia.org/wiki/Gameplay_of_Pok%C3%A9mon#:~:text=Battling%20can%20also%20be%20done,bars%2C%20and%20an%20option%20menu." role="button">Learn more</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="container">
+            <h4>How does it all work</h4>
+                <p>Pokémon uses a turn-based system. When the player challenges a Trainer or encounters a wild Pokémon, the screen changes to a battle scene with the player's Pokémon, the opposing Pokémon, their respective HP bars, and an option menu. At any time, the player may carry up to six Pokémon in his or her active party; the first Pokémon in the lineup is automatically sent into battle. At the start of each turn, both sides can choose to attack, use an item, switch the Pokémon for another in their party, or attempt to flee from battle (against a wild Pokémon). If both sides attack, the one who goes first is determined by Speed, although some moves, items, and effects can override this. If either side chooses any other option, that action is performed before the attacks.
+
+                    Each Pokémon uses moves to reduce their opponent's HP to zero, at which point the Pokémon faints (ひんし, hinshi) and is unable to battle. If the player's Pokémon wins, it receives experience points; when enough have accumulated, the Pokémon's level increases. If the player's Pokémon faints, he/she may use another Pokémon; in battles against wild Pokémon, the player may attempt to flee instead. If all of a player's Pokémon faint, the player loses the battle. This causes the player to lose some money and return to the last Pokémon Center they visited.[3]
+                </p>
+                <h4>Pokemon Type</h4>
+                <p>A Pokémon's type (タイプ, taipu) is an elemental attribute determining the strengths and weaknesses of each Pokémon and its moves. Pokémon take double damage from attacking moves of types they are weak to and half damage from moves they resist. These type matchups offset one another in rock–paper–scissors-style relationships. Some Pokémon types grant full immunity to certain attack types; for instance, Ghost types take no damage from Normal or Fighting-type moves. Some Pokémon Abilities can change these interactions, such as Levitate making Pokémon immune to Ground-type moves.</p>
+                <h4>Pokemon Moves</h4>
+                <p>Like the characters in many role-playing video games, Pokémon can learn a wide variety of moves (技, waza). These moves may inflict damage, induce status problems, restore health, or perform actions that in some way affect the battle. The general strength of and resistance to these moves are determined by the various statistics a particular Pokémon has. All moves have a type, power (威力, Iryoku), accuracy, and a number of Power Points (PP). The moves that one Pokémon may learn are different from another depending on the species of Pokémon; even those that evolve from others do not necessarily learn all the same moves that their predecessors learn. Each Pokémon may only know a total of four moves at any one time. Moves may be learned through leveling up, using TMs and HMs, breeding, and move tutors (NPCs that teach moves).</p>
+                <h4>Stats</h4>
+                <p>All Pokémon have six statistics (能力, Nōryoku, "Attribute") which affect their performance in battle. These are HP, Attack, Defense, Special Attack, Special Defense, and Speed.[12] These statistics can be temporarily modified during battle by Abilities, items, and moves.
+                    <br>HP (short for Health Points): A Pokémon faints when its HP reaches zero, and it cannot be used in battle again until it is revived at a Pokémon Center, or with a special item. However, they can still use moves in the field.
+                    <br>Attack (こうげき, Kōgeki): Determines the strength of a Pokémon's physical attacks.
+                    <br>Defense (ぼうぎょ, Bōgyo): Determines the Pokémon's resistance against physical attacks.
+                    <br>Special Attack (とくこう, Tokukō): Determines the power of a Pokémon's special attacks.
+                    <br>Special Defense (とくぼう, Tokubō): Determines the Pokémon's resilience to special attacks.
+                    <br>Speed (すばやさ, Subayasa): After battle commands are entered, the Speed statistics of the participating Pokémon are compared. With some exceptions, Pokémon with higher Speed make their moves before those with lower Speed.
+                </p>
+        </div>
+
+    </body>
+    </html>

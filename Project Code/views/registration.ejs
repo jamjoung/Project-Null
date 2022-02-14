@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project Null</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+	<!-- script src="js/bootstrap.min.js"></script> -->
+	<!-- NOTE: ^^^^ local/downloaded version of bootstrap? maybe use CDN? -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="shortcut icon"
+        href="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="../login.css">
+	<script type="text/javascript" src="../login.js"></script>
+  
+</head>
+
+
+
+<body onload=openModal()>
+    <%- include ('partials/nav.ejs')  %>
+
+    <br /><br /><br /><br />
+    <!-- Button to click to show the modal-->
+
+    <!-- Modal HTML -->
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <img class="left-align"
+                    src="https://cdn.bulbagarden.net/upload/thumb/f/f2/Black_2_White_2_Rosa.png/200px-Black_2_White_2_Rosa.png"
+                    alt="User Profile Picture" height="550">
+			</div>
+			
+            <div class="col-5">
+				<h4>Sign Up page</h4>
+				<form action="/registration" method="post">
+                <div class="form-group">
+					
+                    <input id="emailInput" type="text" class="form-control" name="emailInput" placeholder="e.g abc123@gmail.com"
+                        required="required"/>
+                </div>
+                <div class="form-group">
+                    <input id="usernameInput" type="text" class="form-control" name="usernameInput" placeholder="Username"
+                        required="required"/>
+                </div>
+                <div class="form-group">
+                    <input id="passwordInput" type="password" class="form-control" name="passwordInput" placeholder="Password"
+                        required="required"/>
+                </div>
+                <div class="form-group">
+                    <input id="cpsw" type="password" class="form-control" name="confirm password"
+                        placeholder="Confirm Password" required="required"/>
+				</div>
+				<button id="my_submit_button" type = "submit" class="btn btn-primary btn-block login-btn" disabled>Submit</button>
+                <!-- <div class="form-group" action="TeamBuilder"> -->
+                    
+                        <!-- onClick="onClickFunction()" href="TeamBuilder.html">Sign Up</button> -->
+				<!-- </div> -->
+			</form>
+                <h5 class="text-center">Email Must be Valid</h5>
+                <p id="emailV" class="invalid text-center"><b>Valid</b></p>
+
+                <h5 class="text-center">Username must contain the following:</h5>
+                <p id="lengthUser" class="invalid text-center">Minimum <b>3 characters</b></p>
+
+
+                <h5 class="text-center">Password must contain the following:</h5>
+                <p id="letter" class="invalid text-center">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid text-center">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid text-center">A <b>number</b></p>
+                <p id="length" class="invalid text-center">Minimum <b>8 characters</b></p>
+                <p id="match" class="invalid text-center">Password and Confirm Password Match</p>
+            </div>
+            <div class="col-4">
+                <img src="https://i.pinimg.com/736x/f3/ff/ba/f3ffbabb462fb64b7e0a5fff9cd5d7fd--character-creation-main-character.jpg"
+                    height="550">
+            </div>
+        </div>
+    </div>
+    <br /><br /><br />
+
+
+</body>
+
+</html>
+

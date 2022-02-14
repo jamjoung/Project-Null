@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>List of mons</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="shortcut icon"
+      href="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440" />
+
+     
+      
+
+</head>
+<body>
+
+  <%- include ('partials/nav.ejs') %>
+      <br>
+        <br>
+      <div class="container" id = pkml>
+          <br>
+      <div class="jumbotron">
+          <h1 class="display-4">ALL pokemon</h1>
+
+        </div>
+        <p>
+       Enter Pokemon Name or id to search:
+       <form action="/db" method="post">       <input type="text" name='pkmName' id="pkmName" class="form-control"
+        placeholder="i.e Charizard">
+        <button type="submit" class="btn btn-success" id="button">Fetch Mon</button>
+      </form>
+
+      <div class="card" style="width: inherit;">
+        <div class="card-body" id="search-result">
+            Pokemon Search Results
+        </div>
+        <% if(data){ data.forEach(function(item){ %>
+          
+            <div class="card " style="height: 75px;">
+                <div class="card-body row" >
+                    <div style="width: 10%; padding-left: 2.5%;" >
+                        <img src="" id = "skee"  style="height: 10%;" >
+                        
+                    </div>
+                    <div style="width: fit-content; padding-left: 5%;">
+                        <p><%= item.pkmn_name %></p>
+                    </div>
+                    <div style="width: fit-content; padding-left: 5%;">
+                        <p><%= item.type_1 %></p>
+                    </div>
+                    <div style="width: fit-content; padding-left: 5%;">
+                        <p><%= item.type_2 %></p>
+                    </div>
+                    <div style="width: fit-content; padding-left: 5%;">
+                        <p>ability</p>
+                    </div>
+                    <div class="col" style="width: fit-content; padding-left: 5%;">
+                        <div class="row">
+                            <div style="width: fit-content; padding-left: 5%;">
+                                <p style="margin-bottom: 1%;">HP</p>
+                                <p><%= item.hp %></p>
+                            </div>
+                            <div style="width: fit-content; padding-left: 5%;">
+                                <p style="margin-bottom: 1%;">Atk</p>
+                                <p><%= item.attack %></p>
+                            </div>
+                            <div style="width: fit-content; padding-left: 5%;">
+                                <p style="margin-bottom: 1%;">Def</p>
+                                <p><%= item.defense %></p>
+                            </div>
+                            <div style="width: fit-content; padding-left: 5%;">
+                                <p style="margin-bottom: 1%;">SpA</p>
+                                <p><%= item.sp_attack %></p>
+                            </div>
+                            <div style="width: fit-content; padding-left: 5%;">
+                                <p style="margin-bottom: 1%;">SpD</p>
+                                <p><%= item.sp_defense %></p>
+                            </div>
+                            <div style="width: fit-content; padding-left: 5%;">
+                                <p style="margin-bottom: 1%;">Spe</p>
+                                <p><%= item.speed %></p>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% }); %>
+      
+        <% } %>
+    </div>
+
+
+</div>
+
+
+
+    </body>    </html>

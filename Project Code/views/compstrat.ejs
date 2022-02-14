@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>What is pokemon?</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon"
+        href="http://vignette4.wikia.nocookie.net/pokemontowerdefensethree/images/f/f3/Squirtle.jpg/revision/latest?cb=20160806214440" />
+
+
+
+</head>
+<body>
+      <%- include ('partials/nav.ejs') %>
+        <br>
+        <br>
+        <div class="container">
+            <br>
+        <div class="jumbotron">
+            <h1 class="display-4">How to play pokemon at competition level</h1>
+            <h6>Information provided by https://www.smogon.com/dp/articles/intro_comp_pokemon</h6>
+            <hr class="my-4">
+            <p>Game Mechanics
+                "Mechanics" is the term we use to refer to the way Pokemon works internally. Up until now, you have probably been able to ignore most of the detailed mechanics of the game, and still be successful. But in competitive Pokemon, there is a very fine line between success and failure. You must understand the subtle mechanics of the game, and exploit them to their maximum effectiveness. If you don't, you can be sure that your opponent will.
+                
+                In order to win a battle, you must faint all of your opponent's Pokemon before they do it to you. As such, the entirety of competitive Pokemon strategy is focused on damage -- the ability to deal damage, withstand damage, and avoid damage. Since damage is the end-all-be-all of battling, you must become familiar with the various game mechanics that affect damage.
+                <br><br>
+                Move Mechanics<br>
+                These are mechanics that affect the damage of a given move in battle.
+                <br><br>
+                Type Effectiveness<br>
+                You are probably familiar with this from in-game play. Certain types of moves do more or less damage to certain types of Pokemon. For example, Ground moves are "super effective" against Electric Pokemon, doing twice as much damage to them. A Pokemon's type, and the type of moves it uses is the single biggest factor determining how much damage it can give and take. The ability for an individual Pokemon or a team of Pokemon to give and take damage across a variety of types is called "Type Coverage" or simply "Coverage."
+                <br><br>
+                Physical and Special moves<br>
+                All damaging moves are either physical or special. Physical moves use the Attack stat while special moves use the Special Attack stat.
+                
+                In the first three generations, whether moves were physical or special depended on their type. All Bug, Flying, Fighting, Ground, Normal, Poison, Rock, Ghost, and Steel moves were physical. All Dark, Dragon, Electric, Fire, Grass, Ice, Psychic, and Water moves were special.
+                
+                It wasn't until the 4th generation that moves were categorized based on their style of attacking. This information can be found under your Pokemon's Battle Moves page on their Summary screen. Physical moves have a red and yellow box while special moves have a purple box. Moves that deal no direct damage have a gray and white box.
+                
+                It's important to keep this in mind when building your Pokemon's moveset. You do not want to give a move like Psycho Cut to a Pokemon like Alakazam, as even though Psycho Cut would be boosted by STAB, it is a physical move and will not deal much damage due to Alakazam's horrible Attack stat.
+                <br><br>
+                Stat Mechanics<br>
+                These are mechanics that affect the statistics of a Pokemon, and thus affect its ability to give, take, and avoid damage.
+                <br><br>
+                Natures<br>
+                Every Pokemon can have 1 out of 25 different natures. Most natures will raise one stat by 10% and lower another stat by 10%. In competitive battling, every Pokemon has one or two preferred natures depending on the moveset they are using. For example, a Pokemon meant to use only physical attacks would most likely benefit from an Adamant nature, which raises Attack by 10% and lowers Special Attack by 10%.
+                
+                There are 5 Natures out there which do not have an effect on any stat. They are Hardy, Serious, Bashful, Quirky, and Docile. These natures should not be used in a competitive setting since they provide no beneficial stat boosts to the Pokemon.
+                
+                For a list of natures and what stats they affect, check here.
+                <br><br>
+                Effort Values (EVs)<br>
+                EVs are "invisible" numbers that can increase a Pokemon's stats. Every 4 EVs in a particular stat is equal to 1 point in that stat. Every Pokemon is capable of having a maximum of 510 EVs with a maximum of 255 EVs in any one stat. Note that neither 510 nor 255 are numbers that are divisible by 4. This means you only need 508 EVs total (252 EVs in any one stat) to have a completely EV-trained Pokemon. The remaining 2 EVs are useless.
+                
+                For more information on EV's and how to EV train Pokemon in the cartridge games, see here.
+                <br><br>
+                Individual Values (IVs)<br>
+                Two untrained Pokemon of the same species with the same level and nature may still have slightly different stats. The reason behind this is that the two Pokemon have different IVs. IVs are "invisible" numbers that range from 0 to 31 and tell you the quality of a Pokemon's stats. 0 means that particular Pokemon's stat is the lowest it can be. 31 means that stat is at its best and is considered a perfect IV.
+                
+                Unlike EVs, IVs cannot be changed and are permanent when you obtain the Pokemon. There is no guaranteed way of obtaining the exact IVs you want. The best way to get a Pokemon with good IVs is by breeding. More information on IV breeding can be found in the Breeding Guide.
+                
+                Competitive Pokemon battling is based on the assumption that all players have perfect Pokemon. Much like professional athletes have near limitless access to state-of-the-art sports equipment, competitive Pokemon strategy assumes you have access to perfect Pokemon. This is often a difficult concept for players of the cartridge games to understand. But, it is essential to forget about that "awesome level 78 Charizard" you used to beat the Elite Four in FireRed. In competitive Pokemon, all players use level 100 Pokemon exclusively, they use only the most powerful species of Pokemon, AND the Pokemon are perfectly EV trained with perfect IVs, with perfect moves.
+                
+                You may wonder, "How it is possible to get completely perfect Pokemon for competitive play?" In most cases, it is only possible to obtain perfect Pokemon through the use of a Battle Simulator - which is a program built for the express purpose of allowing competitive players to quickly and easily assemble entire teams of perfect Pokemon, and then battle against others. It's also possible to acquire perfect Pokemon through trading networks of competitive breeders, and thus use perfect Pokemon and competitive strategies in Wi-Fi battles and real-life tournaments.
+                <br><br>
+                Simulators<br>
+                The majority of competitive Pokemon battling is done over simulators. This was very important in the first three generations, as it was the only possible method of battling competitively against a large variety of opponents. The fourth generation brought Wi-Fi capability with it, but the most competitive play still exists on simulators, as they allow users to fine tune teams much more easily than they can in-game. On simulators, battles can also be conducted faster, rules can be enforced more strictly, and rating systems can be more easily implemented than would be possible by simply using Wi-Fi.
+                <br><br>
+                Pokemon Showdown!<br>
+                The current simulator used by Smogon is Pokemon Showdown!, which boasts multi-generational support, is unique in that it can be played in your browser and is also available as a downloadable applet. Pokemon Showdown! supports RBY, GSC, and DPP-onwards and features individual ladders for a variety of different metagames, including unconventional metagames. Pokemon Showdown also features animated sprites, music, Pokemon cries, and most importantly, a robust replay system so you can save and share your favorite matches!
+                <br><br>
+                Other Simulators<br>
+                There are many old Pokemon simulations that are now out of commission, dating back to the days of RBY play. The most common of these old simulators were the IRC bots and Pokemon NetBattle. There were popular bots for the first three generations: RBY (#rbystadium), GSC (#battlearena), and RSE (#rsarena). They had no graphical interface, so they attracted only the more serious battlers. These bots are no longer in use.
+                
+                NetBattle allowed users to play all of the first three generations of Pokemon, and in limited capacity the fourth generation, and has an attractive graphical interface. This meant that it attracted a wider userbase, helping the competitive Pokemon community to grow. It was similar to Shoddy Battle for previous generations in some respects, one could create teams in the team builder, connect to a server, and conduct battles from there. NetBattle is still usable, but finding an active server on NetBattle is hard, as not many people run them.
+                
+                More recently, Smogon users have used a variety of simulators including Shoddy Battle, Pokemon Laboratory, and Pokemon Online. The simulators were primarily used during the 4th and 5th Generations, though Pokemon Showdown has succeeded all of these as the simulator of choice.
+                <br><br>
+                What To Expect<br>
+                The competitive Pokemon environment is drastically different from what most new players are used to. Unlike in the Gameboy and DS games, you play against human opponents. Outsmarting a handheld machine is one thing, but outsmarting a real person is something else entirely. As such, there are a few key things to expect in competitive battling.
+                
+                The first thing you need to know is that people will play to win. Although it was enough to get by in the cartridge games, using Pokemon because they are cool or your favorites is the fastest way to lose. Your opponents will be using whatever Pokemon they feel give them the best chance of winning, and in order to be competitive you should do the same.
+                
+                One of the most surprising aspects to new players is the idea of switching. No longer will an opponent leave in a Pokemon until it faints; they can-and will-take advantage of the ability to bring in a new Pokemon with a better matchup. Also, do not be surprised if your opponent predicts your switch to hit your incoming Pokemon with a super effective attack, as most players will take advantage of obvious plays in order to gain some sort of advantage.
+                
+                The role of luck in Pokemon comes as an unpleasant surprise to many new players. Between critical hits, chance effects such as burn and flinch, and attacks with less than perfect accuracy, the potential for lucky wins and losses is everywhere. At the end of the day, new players should realize that, while winning is important, any individual win is near meaningless. As in American Football, any given player can win on any given ladder match; what is more important is winning in the long run. The best player in the world can still lose, even to newcomers, but will likely be able to maintain a much higher win-loss ratio.
+                <br><br>
+                Competitive Clauses<br>
+                In competitive Pokemon, there are several standard rules used in every match. These rules are called clauses, and they serve to stop some over-powerful strategies, reduce the role that luck can play in a match, and overall just make the game more enjoyable. If you are playing on a simulator, these rules will be enforced automatically; in Wi-Fi play, activating any one of these clauses will usually result in disqualification.
+                <br>
+                Evasion Clause <br>
+                Moves that boost evasion (i.e. Double Team and Minimize) are not allowed.<br>
+                Freeze Clause<br>
+                Two or more Pokemon on a team cannot be frozen at the same time.<br>
+                Sleep Clause<br>
+                Two or more Pokemon on a team cannot be asleep at the same time. Self-induce sleep via Rest does not activate Sleep Clause.<br>
+                OHKO Clause<br>
+                One-Hit KO moves are not allowed.<br>
+                Species Clause<br>
+                Two or more of the same Pokemon may not be used on the same team.<br>
+                Self KO Clause<br>
+                If both players have only one Pokemon left, moves which KO both the user and the opponent are not allowed (e.g. Explosion, Destiny Bond). If recoil damage would cause a tie, Self KO Clause does not activate, and the player who last attacked is the winner.<br>
+                Item Clause<br>
+                All Pokemon on a team must hold different items. This is not a standard clause in competitive play, but it is used in Nintendo tournaments.<br>
+                Tiers<br>
+                The tiers serve a dual purpose. The first is to promote balanced gameplay and the second is to create an environment where weaker Pokemon can be used. A Pokemon may only be used in a tier equal or above its situated tier.<br>
+                <br>
+                Uber<br>
+                Ubers are Pokemon that are considered too powerful for the OU metagame. The Uber tier is not meant to be a balanced tier, and therefore isn't the main metagame. Every Pokemon, ability, and item is allowed in this tier.<br>
+                OU<br>
+                OverUsed is the main metagame and used for most competitive battles and tournaments. It is the balanced tier that bans as few Pokemon as possible. However, placement in OU is based on usage rather than power, because power is difficult to gauge objectively. A Pokemon is OU if it shows up in 1 out of every 20 teams in the standard metagame.<br>
+                BL<br>
+                Borderline is a non-competitive tier that has a function similar to that of Ubers. It is to include Pokemon that aren't used sufficiently to be considered OU, but are too powerful to be used in UU.<br>
+                UU<br>
+                UnderUsed is a lower competitive metagame than OU and is generally composed of Pokemon that aren't powerful enough to compete in OU. It is also based on usage.<br>
+                NU<br>
+                NeverUsed is the lowest tier in the system and denoted Pokemon that are extremely weak. It is based on usage and doesn't exist in RBY or GSC, due to there not being enough Pokemon.<br>
+                Limbo<br>
+                Limbo serves as a place where Pokemon that do not yet have a decided tier are put.
+                Common Mistakes
+                Prediction is one of the keys to a successful game, but it should not be heavily relied upon. No one can predict with even close to perfect accuracy, and even a single missed prediction often means that one of your Pokemon will be KOed. That is not to say that you should never take risks, but it is important to weigh the rewards and the potential consequences of each decision that you make. To take a very basic example: Let's say you have a Choice Band Tyranitar (moveset: Stone Edge, Crunch, Earthquake, Pursuit) in play against your opponent's Heatran. It may seem like the best attack is Earthquake, which will hit Heatran for super effective damage and easily take it down in a single hit. However, Choice Band will force Tyranitar to continually attack with Earthquake, which is a very risky play due to the frequency and power of sweepers which are immune to Ground-type attacks. Stone Edge only has 80% accuracy, but it is Tyranitar's most powerful attack, and will prevent most sweepers from setting up safely. Additionally, Heatran will likely lose somewhere between 80% and 95% of its health even if it does stay in.
+                
+                Gimmicks, or novelty Pokemon or sets, are common among newer players. They can be fun for comical purposes, but will rarely serve any significant purpose in a competitive metagame. Once you get to more advanced levels of play you can start creating custom Pokemon sets, but until then, the best way to get started is to use the common, tried and true sets until you get down the basics.
+                
+                Although it may be difficult to comprehend at first, it is important to remember that directly countering every threat in the game is impossible. Even if the Black/White metagame was not filled with more powerful sweepers than in any previous generation, the metagame is constantly changing, and players will quickly find ways to abuse common trends. For this reason, there are in fact very few Pokemon that can always be directly countered at all! But fear not; Pokemon is more than just countering, and with experience you will learn that it is possible to play around any kind of threat with a well built team, through planning, prediction, and custom sets.
+                
+                Always try to think in the long term. A large part of competitive Pokemon deals with the ability to analyze situations and form a plan to deal with both short and long term threats, while at the same time executing your own strategy. It is easy to focus only on the Pokemon you are currently facing, but it is imperative that you learn to consider all of your opponent's possible plays in both the short and long term.
+            </p>
+            
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="https://www.smogon.com/dp/articles/intro_comp_pokemon" role="button">Learn more</a>
+            </p>
+          </div>
+        </div>
+
+
+
+    </body>
+    </html>
